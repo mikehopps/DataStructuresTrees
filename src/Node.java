@@ -22,10 +22,26 @@ public class Node {
         String ans = "";
         if(leftChild != null)
             ans += leftChild.toString();
-        ans += value;
+        ans += value + " ";
         if(rightChild != null)
             ans += rightChild.toString();
         return ans;
+    }
+
+    public void add(int newValue){
+        if(newValue < value){ //go down left branch
+            if(leftChild == null){
+                leftChild = new Node(newValue);
+            }else{
+               leftChild.add(newValue);
+            }
+        }else { //go down right branch
+            if (rightChild == null) {
+                rightChild = new Node(newValue);
+            } else {
+                rightChild.add(newValue);
+            }
+        }
     }
 
 
